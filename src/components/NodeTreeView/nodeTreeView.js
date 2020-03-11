@@ -5,11 +5,14 @@ import Label from "@material-ui/icons/Label";
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import styles from './styles';
 import {TreeItem, TreeView} from "@material-ui/lab";
-import {Typography, Button} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import PropTypes from "prop-types";
 import {fetchingHosts} from '../../store/hosts/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
+import ReplayIcon from '@material-ui/icons/Replay';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useTreeItemStyles = makeStyles(theme => ({
     root: {
@@ -119,23 +122,23 @@ class NodeTreeView extends Component {
 
         return (
             <div className={hosts.isFetching ? classes.isFetching : null}>
-                <Button onClick={this.handleOnClick.bind(this)}>
-                    refresh
-                </Button>
-                 <TreeView
-                className={classes.root}
-                defaultExpanded={['3']}
-                defaultCollapseIcon={<ArrowDropDownIcon/>}
-                defaultExpandIcon={<ArrowRightIcon/>}
-                defaultEndIcon={<div style={{width: 24}}/>}
-            >
-                {
-                    hosts.hostNodes.map((host, idx) => (
-                        <StyledTreeItem key={idx} nodeId={host.hostid} labelText={host.host} labelIcon={Label}/>
-                    ))
-                }
+                <IconButton color="primary" aria-label="refresh" onClick={this.handleOnClick.bind(this)}>
+                    <ReplayIcon/>
+                </IconButton>
+                <TreeView
+                    className={classes.root}
+                    defaultExpanded={['3']}
+                    defaultCollapseIcon={<ArrowDropDownIcon/>}
+                    defaultExpandIcon={<ArrowRightIcon/>}
+                    defaultEndIcon={<div style={{width: 24}}/>}
+                >
+                    {
+                        hosts.hostNodes.map((host, idx) => (
+                            <StyledTreeItem key={idx} nodeId={host.hostid} labelText={host.host} labelIcon={Label}/>
+                        ))
+                    }
 
-            </TreeView>
+                </TreeView>
             </div>
 
         )
@@ -148,7 +151,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators({fetchingHosts}, dispatch)
-})
+});
 
 
 export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(NodeTreeView));
