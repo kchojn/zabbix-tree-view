@@ -1,10 +1,13 @@
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        maxWidth: 400
+        maxWidth: window.screen.width,
+        maxHeight: window.screen.height/2,
+        overflowX: 'hidden',
+        overflow: "auto"
     },
     isFetching: {
-        backgroundColor: theme.palette.secondary.main
+        backgroundColor: theme.palette.text.disabled
     }
 });
 
