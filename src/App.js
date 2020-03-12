@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <div className={`App ${classes.root}`}>
-                    <header className={`App-header ${classes.header}`}>
+                    <header className={`App-body ${classes.header}`}>
                         <NodeTreeView/>
                     </header>
                 </div>
