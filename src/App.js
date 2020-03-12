@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './css/App.css';
 import styles from './styles';
 import {withStyles} from '@material-ui/core/styles';
 import NodeTreeView from './components/NodeTreeView/nodeTreeView';
@@ -13,9 +12,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <div className={`App ${classes.root}`}>
-                    <header className={`App-body ${classes.header}`}>
                         <NodeTreeView/>
-                    </header>
                 </div>
             </Provider>
 
