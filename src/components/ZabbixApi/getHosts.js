@@ -1,26 +1,26 @@
-import {ZabbixClient} from "zabbix-client/dist";
+import responseZabbix from "./zabbixClient";
 
-const client = new ZabbixClient(
-    'http://zabbix4-demo.hawatel.lan:8081/api_jsonrpc.php',
-);
 
 const getHosts = async () => {
-    const hosts = [];
-    const api = await client.login('Admin', 'zabbix');
-    const host = await api.method('host.get').call({});
-    for (const key in host) {
-        if (host.hasOwnProperty(key)) {
-            hosts.push(
-                {
-                    'hostid': host[key]['hostid'],
-                    'host': host[key]['host']
-                }
-            );
-        }
+    return responseZabbix('host.get', {}).then(function (result) {
+        const hosts = [];
+        const host = result;
+        console.log(host + '0');
+        for (const key in host) {
+            if (host.hasOwnProperty(key)) {
+                hosts.push(
+                    {
+                        'hostid': host[key]['hostid'],
+                        'host': host[key]['host']
+                    }
+                );
+            }
 
-    }
-    await api.logout();
-    return hosts;
+        }
+        console.log(hosts + '1');
+        return hosts;
+    });
+
 };
 
 export default getHosts;
