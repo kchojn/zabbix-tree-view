@@ -1,23 +1,22 @@
-import responseZabbix from "./zabbixClient";
+import getResponse from "./zabbixResponse";
 
+const method = 'host.get';
+const params = {};
 
-const getHosts = async () => {
-    return responseZabbix('host.get', {}).then(function (result) {
+const getHosts = () => {
+    return getResponse(method, params).then(function (result) {
         const hosts = [];
-        const host = result;
-        console.log(host + '0');
-        for (const key in host) {
-            if (host.hasOwnProperty(key)) {
+        for (const key in result) {
+            if (result.hasOwnProperty(key)) {
                 hosts.push(
                     {
-                        'hostid': host[key]['hostid'],
-                        'host': host[key]['host']
+                        'hostid': result[key]['hostid'],
+                        'host': result[key]['host']
                     }
                 );
             }
 
         }
-        console.log(hosts + '1');
         return hosts;
     });
 
