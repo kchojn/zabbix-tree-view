@@ -10,8 +10,8 @@ const getHosts = () => {
             if (result.hasOwnProperty(key)) {
                 hosts.push(
                     {
-                        'hostid': result[key].hostid,
-                        'host': result[key].host
+                        'id': result[key].hostid,
+                        'name': result[key].host
                     }
                 );
             }
