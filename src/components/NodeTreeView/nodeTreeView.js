@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import Label from "@material-ui/icons/Label";
 import {withStyles} from '@material-ui/core/styles';
 import styles from './styles';
 import {TreeView} from "@material-ui/lab";
@@ -11,7 +10,7 @@ import {connect} from "react-redux";
 import ReplayIcon from '@material-ui/icons/Replay';
 import IconButton from '@material-ui/core/IconButton';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import StyledTreeItem from "./styledTreeItems";
+import {setIcon, StyledTreeItem} from "./styledTreeItems";
 
 
 class NodeTreeView extends Component {
@@ -32,8 +31,9 @@ class NodeTreeView extends Component {
         return body
     }
 
+
     renderTree(nodes) {
-        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name} labelIcon={Label}>
+        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name} labelIcon={setIcon(nodes.id)}>
             {Array.isArray(nodes.children) ? nodes.children.map(node => this.renderTree(node)) : null}
         </StyledTreeItem>
     }
