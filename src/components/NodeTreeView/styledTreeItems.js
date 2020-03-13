@@ -5,6 +5,7 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import Label from "@material-ui/icons/Label";
+import {ReactComponent as ZabbixIcon} from "../../images/zabbix_icon.svg";
 
 const useTreeItemStyles = makeStyles(theme => ({
     root: {
@@ -102,7 +103,7 @@ StyledTreeItem.propTypes = {
 
 function setIcon(id) {
     if (id === 'root')
-        return FormatListBulletedIcon;
+        return ZabbixIcon;
     return Label;
 }
 
