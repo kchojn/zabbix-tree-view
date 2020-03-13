@@ -14,7 +14,6 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import IconButton from '@material-ui/core/IconButton';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-
 const useTreeItemStyles = makeStyles(theme => ({
     root: {
         color: theme.palette.text.secondary,
@@ -109,6 +108,7 @@ StyledTreeItem.propTypes = {
 
 class NodeTreeView extends Component {
 
+
     componentDidMount() {
         this.props.actions.fetchingHosts();
     }
@@ -116,6 +116,18 @@ class NodeTreeView extends Component {
 
     handleOnClick() {
         this.props.actions.fetchingHosts();
+    }
+
+    createNodesData(lst) {
+        const body = {id: 'root', name: 'Zabbix Events', children: []};
+        body.children = lst;
+        return body
+    }
+
+    renderTree(nodes) {
+        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name} labelIcon={Label}>
+            {Array.isArray(nodes.children) ? nodes.children.map(node => this.renderTree(node)) : null}
+        </StyledTreeItem>
     }
 
     render() {
@@ -135,9 +147,7 @@ class NodeTreeView extends Component {
                         defaultEndIcon={<div style={{width: 24}}/>}
                     >
                         {
-                            hosts.hostNodes.map((host, idx) => (
-                                <StyledTreeItem key={idx} nodeId={host.hostid} labelText={host.host} labelIcon={Label}/>
-                            ))
+                            this.renderTree(this.createNodesData(hosts.hostNodes))
                         }
 
                     </TreeView>
