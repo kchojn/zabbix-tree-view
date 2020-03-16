@@ -11,7 +11,7 @@ const params = {
 const method = 'event.get';
 const timeStamp = Math.round((new Date()).getTime() / 1000);
 
-const setTimeFrom = (params, period = 40 * 60) => {
+const setTimeFrom = (params, period = 100 * 60) => {
     params.time_from = timeStamp - period;
     return params
 };
@@ -23,7 +23,7 @@ const getEvents = () => {
             if (result.hasOwnProperty(key)) {
                 events.push(
                     {
-                        'eventid': result[key].eventid,
+                        'id': result[key].eventid,
                         'name': result[key].name,
                         'hostid': result[key].hosts[0].hostid,
                         'value': result[key].value,
