@@ -25,15 +25,9 @@ class NodeTreeView extends Component {
         this.props.actions.fetchingHosts();
     }
 
-    createNodesData(lst) {
-        const body = {id: 'root', name: 'Zabbix Events', children: []};
-        body.children = lst;
-        return body
-    }
-
-
     renderTree(nodes) {
-        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name} labelIcon={setIcon(nodes.id)}>
+        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name}
+                               labelIcon={setIcon(nodes.id, nodes.children ? nodes.children.length : 0)}>
             {Array.isArray(nodes.children) ? nodes.children.map(node => this.renderTree(node)) : null}
         </StyledTreeItem>
     }
@@ -55,7 +49,7 @@ class NodeTreeView extends Component {
                         defaultEndIcon={<div style={{width: 24}}/>}
                     >
                         {
-                            this.renderTree(this.createNodesData(hosts.hostNodes))
+                            this.renderTree(hosts.hostNodes)
                         }
 
                     </TreeView>
