@@ -21,7 +21,9 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "zabbix-client": "^1.2.7",
-    "zabbix-promise": "^2.0.2"
+    "zabbix-promise": "^2.0.2",
+    "clsx": "latest",
+    "react-router-dom": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

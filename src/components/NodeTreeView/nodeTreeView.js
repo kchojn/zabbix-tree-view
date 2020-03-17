@@ -7,13 +7,8 @@ import {TreeView} from "@material-ui/lab";
 import {fetchingHosts} from '../../store/hosts/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
-import ReplayIcon from '@material-ui/icons/Replay';
-import IconButton from '@material-ui/core/IconButton';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {setIcon, StyledTreeItem} from "./styledTreeItems";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import FormGroup from '@material-ui/core/FormGroup';
 
 
 class NodeTreeView extends Component {
@@ -40,30 +35,18 @@ class NodeTreeView extends Component {
 
         return (
             hosts.isFetching ? <CircularProgress classes={classes.spinner}/> :
-                <div>
-                         <FormGroup>
-                            <IconButton color="inherit" aria-label="refresh" onClick={this.handleOnClick.bind(this)}>
-                                <ReplayIcon/>
-                            </IconButton>
-      </FormGroup>
-                    <AppBar position="static">
-                        <Toolbar>
-                            <TreeView
-                                className={classes.root}
-                                defaultExpanded={['3']}
-                                defaultCollapseIcon={<ArrowDropDownIcon/>}
-                                defaultExpandIcon={<ArrowRightIcon/>}
-                                defaultEndIcon={<div style={{width: 24}}/>}
-                            >
-                                {
-                                    this.renderTree(hosts.hostNodes)
-                                }
+                <TreeView
+                    className={classes.root}
+                    defaultExpanded={['3']}
+                    defaultCollapseIcon={<ArrowDropDownIcon/>}
+                    defaultExpandIcon={<ArrowRightIcon/>}
+                    defaultEndIcon={<div style={{width: 24}}/>}
+                >
+                    {
+                        this.renderTree(hosts.hostNodes)
+                    }
 
-                            </TreeView>
-
-                        </Toolbar>
-                    </AppBar>
-                </div>
+                </TreeView>
 
         )
     }

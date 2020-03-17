@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import styles from './styles';
 import {withStyles} from '@material-ui/core/styles';
-import NodeTreeView from './components/NodeTreeView/nodeTreeView';
 import {Provider} from 'react-redux';
 import store from './store';
+import Home from "./pages/Home/Home";
+import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import Alerts from "./pages/Alerts/Alerts";
+
 
 class App extends Component {
     render() {
@@ -12,7 +16,20 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <div className={`App ${classes.root}`}>
-                        <NodeTreeView/>
+                    <Router>
+                        <Layout>
+                            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+                            <Switch>
+                                <Route path="/alerts">
+                                    <Alerts/>
+                                </Route>
+                                <Route path="/">
+                                    <Home/>
+                                </Route>
+                            </Switch>
+                        </Layout>
+                    </Router>
                 </div>
             </Provider>
 
