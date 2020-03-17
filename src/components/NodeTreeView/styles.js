@@ -2,7 +2,7 @@ const styles = theme => ({
     root: {
         flexGrow: 1,
         maxWidth: window.screen.width,
-        maxHeight: window.screen.height / 2,
+        maxHeight: window.screen.height,
         overflowX: 'hidden',
         overflow: "auto",
         alignItems: "center"
