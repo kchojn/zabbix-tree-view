@@ -9,6 +9,11 @@ import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {setIcon, StyledTreeItem} from "./styledTreeItems";
+import {Card, CardContent, CardHeader} from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import ReplayIcon from '@material-ui/icons/Replay';
+import {ReactComponent as ZabbixIcon} from "../../images/zabbix_icon.svg";
 
 
 class NodeTreeView extends Component {
@@ -35,18 +40,33 @@ class NodeTreeView extends Component {
 
         return (
             hosts.isFetching ? <CircularProgress classes={classes.spinner}/> :
-                <TreeView
-                    className={classes.root}
-                    defaultExpanded={['3']}
-                    defaultCollapseIcon={<ArrowDropDownIcon/>}
-                    defaultExpandIcon={<ArrowRightIcon/>}
-                    defaultEndIcon={<div style={{width: 24}}/>}
-                >
-                    {
-                        this.renderTree(hosts.hostNodes)
-                    }
+                <Card className={classes.root}>
+                    <CardHeader
+                        avatar={
+                            <Avatar aria-label="zabbix" className={classes.avatar}>
+                                <ZabbixIcon/>
+                            </Avatar>
+                        }
+                        action={
+                            <IconButton color="inherit" aria-label="refresh" onClick={this.handleOnClick.bind(this)}>
+                                <ReplayIcon/>
+                            </IconButton>}
+                    />
+                    <CardContent>
+                        <TreeView
+                            className={classes.root}
+                            defaultExpanded={['3']}
+                            defaultCollapseIcon={<ArrowDropDownIcon/>}
+                            defaultExpandIcon={<ArrowRightIcon/>}
+                            defaultEndIcon={<div style={{width: 24}}/>}
+                        >
+                            {
+                                this.renderTree(hosts.hostNodes)
+                            }
 
-                </TreeView>
+                        </TreeView>
+                    </CardContent>
+                </Card>
 
         )
     }

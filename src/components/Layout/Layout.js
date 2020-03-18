@@ -35,6 +35,7 @@ class Layout extends Component {
         return <div className={classes.root}>
             <CssBaseline/>
             <AppBar
+                color="default"
                 position="fixed"
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: navBarIsOpen,

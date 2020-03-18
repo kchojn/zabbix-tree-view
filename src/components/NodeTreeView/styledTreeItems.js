@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Label from "@material-ui/icons/Label";
-import {ReactComponent as ZabbixIcon} from "../../images/zabbix_icon.svg";
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 const useTreeItemStyles = makeStyles(theme => ({
@@ -102,8 +101,6 @@ StyledTreeItem.propTypes = {
 
 
 function setIcon(id, arrayLength) {
-    if (id === 'root')
-        return ZabbixIcon;
     if (arrayLength > 0)
         return ErrorOutlineIcon;
     return Label;

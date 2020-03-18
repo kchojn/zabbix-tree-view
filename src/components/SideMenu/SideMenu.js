@@ -17,6 +17,7 @@ class SideMenu extends Component {
                 className={classes.root}
                 variant="persistent"
                 anchor="left"
+                color="default"
                 open={isOpen}
                 classes={{
                     paper: classes.drawerPaper,
