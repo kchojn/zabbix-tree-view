@@ -8,7 +8,7 @@ import {fetchingHosts} from '../../store/hosts/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {setIcon, StyledTreeItem} from "./styledTreeItems";
+import {setIcon, StyledTreeItem} from "./StyledTreeItems";
 import {Card, CardContent, CardHeader} from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';

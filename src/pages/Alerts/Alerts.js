@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
-import NodeTreeView from "../../components/NodeTreeView/nodeTreeView";
+import NodeTreeView from "../../components/NodeTreeView/NodeTreeView";
 import {Container, Grid} from '@material-ui/core';
 import StatChart from "../../components/Charts/Charts";
 

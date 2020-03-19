@@ -1,4 +1,4 @@
-import getResponse from "./zabbixResponse";
+import getResponse from "./ZabbixResponse";
 
 const method = 'host.get';
 const params = {};

@@ -1,4 +1,4 @@
-import responseZabbix from "./zabbixClient";
+import responseZabbix from "./ZabbixClient";
 
 const getResponse = async (method, params) => {
     return responseZabbix(method, params).then(function (result) {

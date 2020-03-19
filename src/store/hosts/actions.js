@@ -1,5 +1,5 @@
 import {HOST_REQ, HOST_RES} from "./types";
-import HostEventMapper from "../../components/ZabbixApi/mapHostsEvents";
+import HostEventMapper from "../../components/ZabbixApi/MapHostsEvents";
 
 
 export const fetchingHosts = () => {

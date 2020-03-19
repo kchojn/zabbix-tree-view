@@ -1,5 +1,5 @@
-import getHosts from "./getHosts";
-import getEvents from "./getEvents";
+import getHosts from "./GetHosts";
+import getEvents from "./GetEvents";
 
 class HostEventMapper {
     constructor() {
