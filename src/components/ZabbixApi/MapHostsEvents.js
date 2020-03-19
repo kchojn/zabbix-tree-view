@@ -9,13 +9,7 @@ class HostEventMapper {
 
 
     filterEvents(dataSet, id) {
-        const filteredData = dataSet.filter(d => d.hostid === id);
-        filteredData.forEach(function (item) {
-            delete item.hostid;
-            delete item.value;
-            delete item.severity;
-        });
-        return filteredData;
+        return dataSet.filter(d => d.hostid === id);
     }
 
     async mapAll() {
