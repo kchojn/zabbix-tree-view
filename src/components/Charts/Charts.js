@@ -28,7 +28,7 @@ const data = [
 ];
 
 
-class StatChart extends Component {
+class StackedChart extends Component {
     render() {
         const {classes} = this.props;
         return (
@@ -53,4 +53,4 @@ class StatChart extends Component {
     }
 }
 
-export default withStyles(styles)(StatChart);
+export default withStyles(styles)(StackedChart);
