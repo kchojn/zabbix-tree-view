@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
 import NodeTreeView from "../../components/NodeTreeView/nodeTreeView";
 import {Container, Grid} from '@material-ui/core';
+import StatChart from "../../components/Charts/Charts";
 
 class Alerts extends Component {
     render() {
@@ -14,7 +15,7 @@ class Alerts extends Component {
                         <NodeTreeView/>
                     </Grid>
                     <Grid item xs={6}>
-                        Drugi component
+                        <StatChart/>
                     </Grid>
                 </Grid>
             </Container>
