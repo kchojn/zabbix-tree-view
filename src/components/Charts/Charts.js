@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from 'recharts';
+import {fetchingHosts} from '../../store/hosts/actions';
+import {bindActionCreators} from 'redux';
+import {connect} from "react-redux";
 
 const data = [
     {
@@ -53,4 +56,14 @@ class StackedChart extends Component {
     }
 }
 
-export default withStyles(styles)(StackedChart);
+
+const mapStateToProps = (state) => ({
+    hosts: state.hosts
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators({fetchingHosts}, dispatch)
+});
+
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(StackedChart));
