@@ -1,37 +1,56 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
-import {YAxis, Line, LineChart, Tooltip, XAxis} from 'recharts';
+import {BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
-const data01 = [
-  { day: '05-01', weather: 'sunny' },
-  { day: '05-02', weather: 'sunny' },
-  { day: '05-03', weather: 'cloudy' },
-  { day: '05-04', weather: 'rain' },
-  { day: '05-05', weather: 'rain' },
-  { day: '05-06', weather: 'cloudy' },
-  { day: '05-07', weather: 'cloudy' },
-  { day: '05-08', weather: 'sunny' },
-  { day: '05-09', weather: 'sunny' },
+const data = [
+  {
+    name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+  },
+  {
+    name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+  },
+  {
+    name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+  },
+  {
+    name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+  },
+  {
+    name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+  },
+  {
+    name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+  },
+  {
+    name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+  },
 ];
 
 
 class StatChart extends Component {
     render() {
         const {classes} = this.props;
-        return <div className={classes.root}>
- <LineChart
-            width={400} height={400} data={data01}
-            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-            <XAxis dataKey="day" />
-            <YAxis type="category" />
-            <Tooltip />
-            <Line type="stepAfter" dataKey="weather" stroke="#ff7300" />
-          </LineChart>
-        </div>
+        return (
+            <BarChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                    top: 20, right: 30, left: 20, bottom: 5,
+                }}
+            >
+                <CartesianGrid strokeDasharray="3 3"/>
+                <XAxis dataKey="name"/>
+                <YAxis/>
+                <Tooltip/>
+                <Legend/>
+                <Bar dataKey="pv" stackId="a" fill="#8884d8"/>
+                <Bar dataKey="uv" stackId="a" fill="#82ca9d"/>
+            </BarChart>
+        );
 
     }
-
 }
 
 export default withStyles(styles)(StatChart);
