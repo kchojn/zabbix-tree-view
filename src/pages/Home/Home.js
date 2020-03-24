@@ -1,7 +1,7 @@
 import  React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
-import Settings from "../../components/ZabbixSettings/ZabbixSettings";
+import Settings from "../../components/Authentication/AuthenticationSettings";
 
 class Home extends Component {
     render() {
