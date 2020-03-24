@@ -3,7 +3,7 @@ import styles from './styles';
 import {withStyles} from '@material-ui/core/styles';
 import {Provider} from 'react-redux';
 import store from './store';
-import Home from "./pages/Home/Home";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Alerts from "./pages/Alerts/Alerts";
@@ -25,7 +25,7 @@ class App extends Component {
                                     <Alerts/>
                                 </Route>
                                 <Route path="/">
-                                    <Home/>
+                                    <Dashboard/>
                                 </Route>
                             </Switch>
                         </Layout>

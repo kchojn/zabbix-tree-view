@@ -35,7 +35,7 @@ class SideMenu extends Component {
                             <ListItemIcon>
                                 <InboxIcon/>
                             </ListItemIcon>
-                            <ListItemText primary={"Home"}/>
+                            <ListItemText primary={"Dashboard"}/>
                         </ListItem>
                     </Link>
                     <Link to="/alerts" onClick={onClose}>
@@ -43,19 +43,11 @@ class SideMenu extends Component {
                             <ListItemIcon>
                                 <InboxIcon/>
                             </ListItemIcon>
-                            <ListItemText primary={"Alerts"}/>
+                            <ListItemText primary={"Settings"}/>
                         </ListItem>
                     </Link>
                 </List>
                 <Divider/>
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
-                </List>
             </Drawer>
         )
 

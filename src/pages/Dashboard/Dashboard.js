@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
 import Settings from "../../components/Authentication/AuthenticationSettings";
 
-class Home extends Component {
+class Dashboard extends Component {
     render() {
         const {classes} = this.props;
         return <div className={classes.root}>
@@ -14,4 +14,4 @@ class Home extends Component {
 
 }
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(Dashboard);
