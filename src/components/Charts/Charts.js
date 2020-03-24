@@ -5,52 +5,79 @@ import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from 'recha
 import {fetchingHosts} from '../../store/hosts/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
-
-const data = [
-    {
-        name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-    },
-    {
-        name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
-    },
-    {
-        name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
-    },
-    {
-        name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-    },
-    {
-        name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-    },
-    {
-        name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-    },
-    {
-        name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-    },
-];
+import {SeverityMap} from "../../components/ZabbixApi/SeverityMap"
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 
 class StackedChart extends Component {
+
+    componentDidMount() {
+        this.props.actions.fetchingHosts();
+    }
+
+    getData(dataSource) {
+        const data = [];
+        let element = {};
+        dataSource.children.forEach(function (item) {
+            if (item.children.length > 0) {
+                element = {};
+                element[item.name] = [];
+                item.children.forEach(function (value) {
+                    console.log();
+                    element[item.name].push(value.severity)
+                });
+                data.push(element);
+            }
+
+
+        });
+        return data
+    }
+
+    countOccurrences(dataSet, severity) {
+        return dataSet.filter(i => i === severity.toString()).length
+    }
+
+    makeChartData(data) {
+        console.log(data);
+        const self = this;
+        const chartData = [];
+        this.getData(data).forEach(function (item) {
+            let hostData = {};
+            hostData.name = Object.keys(item)[0]; // push label name
+            for (const key in SeverityMap) {
+                hostData[SeverityMap[key]] = self.countOccurrences(item[Object.keys(item)[0]], key)
+            }
+            chartData.push(hostData)
+        });
+        return chartData
+    }
+
     render() {
-        const {classes} = this.props;
+        const {classes, hosts} = this.props;
+        let data = hosts.hostNodes;
         return (
-            <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 20, right: 30, left: 20, bottom: 5,
-                }}
-            >
-                <CartesianGrid strokeDasharray="3 3"/>
-                <XAxis dataKey="name"/>
-                <YAxis/>
-                <Tooltip/>
-                <Legend/>
-                <Bar dataKey="pv" stackId="a" fill="#8884d8"/>
-                <Bar dataKey="uv" stackId="a" fill="#82ca9d"/>
-            </BarChart>
+            data ? <CircularProgress classes={classes.spinner}/>:
+                <BarChart
+                    width={500}
+                    height={300}
+                    data={this.makeChartData(data)}
+                    margin={{
+                        top: 20, right: 30, left: 20, bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3"/>
+                    <XAxis dataKey="name"/>
+                    <YAxis/>
+                    <Tooltip/>
+                    <Legend/>
+                    <Bar dataKey="notClassified" stackId="a" fill="#97AAB3"/>
+                    <Bar dataKey="information" stackId="a" fill="#00BFFF"/>
+                    <Bar dataKey="warning" stackId="a" fill="#FFC859"/>
+                    <Bar dataKey="average" stackId="a" fill="#FFA059"/>
+                    <Bar dataKey="high" stackId="a" fill="#E97659"/>
+                    <Bar dataKey="disaster" stackId="a" fill="#E45959"/>
+                </BarChart>
         );
 
     }
