@@ -12,7 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import {withStyles} from "@material-ui/core/styles";
 import Container from '@material-ui/core/Container';
 import styles from "./styles"
-import {ReactComponent as ZabbixIcon} from "../../images/zabbix_icon.svg";
+import SettingsIcon from '@material-ui/icons/Settings';
+
 
 
 class AuthSettings extends Component {
@@ -42,7 +43,7 @@ class AuthSettings extends Component {
                 <CssBaseline/>
                 <div className={classes.paper}>
                     <Avatar className={classes.avatar}>
-                        <ZabbixIcon/>
+                        <SettingsIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Zabbix Api Source
