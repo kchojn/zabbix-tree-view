@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import {Provider} from 'react-redux';
 import store from './store';
 import Home from "./pages/Home/Home";
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Alerts from "./pages/Alerts/Alerts";
 
