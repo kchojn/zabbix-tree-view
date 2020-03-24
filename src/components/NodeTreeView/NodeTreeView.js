@@ -3,7 +3,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import {withStyles} from '@material-ui/core/styles';
 import styles from './styles';
-import {TreeView} from "@material-ui/lab";
+import {TreeView, TreeItem} from "@material-ui/lab";
 import {fetchingHosts} from '../../store/hosts/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
@@ -29,10 +29,9 @@ class NodeTreeView extends Component {
     }
 
     renderTree(nodes) {
-        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name}
-                               labelIcon={setIcon(nodes.id, nodes.children ? nodes.children.length : 0)}>
+        return <TreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name}>
             {Array.isArray(nodes.children) ? nodes.children.map(node => this.renderTree(node)) : null}
-        </StyledTreeItem>
+        </TreeItem>
     }
 
     render() {

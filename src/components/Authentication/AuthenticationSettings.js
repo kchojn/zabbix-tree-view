@@ -19,6 +19,7 @@ class Settings extends Component {
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
+        this.state = { username: null, password: null, url: null};
     }
 
     copyright() {
@@ -51,12 +52,14 @@ class Settings extends Component {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     name="username"
+                                    onChange={(username) =>this.setState({username})}
                                     variant="outlined"
                                     required
                                     fullWidth
                                     id="userName"
                                     label="User Name"
                                     autoFocus
+                                    value={this.state.username}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -64,11 +67,13 @@ class Settings extends Component {
                                     variant="outlined"
                                     required
                                     fullWidth
+                                    onChange={(password) => this.setState({password})}
                                     name="password"
                                     label="Password"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
+                                    value={this.state.password}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -80,6 +85,8 @@ class Settings extends Component {
                                     label="Zabbix Url"
                                     name="zabbixUrl"
                                     autoComplete="zabbixUrl"
+                                    onChange={(url) => this.setState({url})}
+                                    value={this.state.url}
                                 />
                             </Grid>
                             <Grid item xs={12}>
