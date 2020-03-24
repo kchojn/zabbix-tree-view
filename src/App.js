@@ -6,7 +6,7 @@ import store from './store';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import Alerts from "./pages/Alerts/Alerts";
+import Settings from "./pages/Settings/Settings";
 
 
 class App extends Component {
@@ -21,8 +21,8 @@ class App extends Component {
                             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
                             <Switch>
-                                <Route path="/alerts">
-                                    <Alerts/>
+                                <Route path="/settings">
+                                    <Settings/>
                                 </Route>
                                 <Route path="/">
                                     <Dashboard/>

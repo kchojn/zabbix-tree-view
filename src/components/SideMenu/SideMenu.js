@@ -4,7 +4,6 @@ import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
 import {Divider, Drawer, List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
@@ -38,7 +37,7 @@ class SideMenu extends Component {
                             <ListItemText primary={"Dashboard"}/>
                         </ListItem>
                     </Link>
-                    <Link to="/alerts" onClick={onClose}>
+                    <Link to="/settings" onClick={onClose}>
                         <ListItem button>
                             <ListItemIcon>
                                 <InboxIcon/>

@@ -1,13 +1,24 @@
-import  React, {Component} from 'react';
+import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
-import Settings from "../../components/Authentication/AuthenticationSettings";
+import NodeTreeView from "../../components/NodeTreeView/NodeTreeView";
+import {Container, Grid} from '@material-ui/core';
+import StatChart from "../../components/Charts/Charts";
 
 class Dashboard extends Component {
     render() {
         const {classes} = this.props;
         return <div className={classes.root}>
-            <Settings/>
+            <Container maxWidth={false}>
+                <Grid container spacing={3}>
+                    <Grid item xs={6}>
+                        <NodeTreeView/>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <StatChart/>
+                    </Grid>
+                </Grid>
+            </Container>
         </div>
 
     }
@@ -15,3 +26,4 @@ class Dashboard extends Component {
 }
 
 export default withStyles(styles)(Dashboard);
+

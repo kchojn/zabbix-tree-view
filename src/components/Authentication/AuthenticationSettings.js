@@ -15,7 +15,7 @@ import styles from "./styles"
 import {ReactComponent as ZabbixIcon} from "../../images/zabbix_icon.svg";
 
 
-class Settings extends Component {
+class AuthSettings extends Component {
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
@@ -134,4 +134,4 @@ class Settings extends Component {
     }
 }
 
-export default withStyles(styles)(Settings);
+export default withStyles(styles)(AuthSettings);
