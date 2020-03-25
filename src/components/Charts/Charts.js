@@ -5,7 +5,7 @@ import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from 'recha
 import {fetchingHosts} from '../../store/hosts/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
-import {SeverityMap} from "../../components/ZabbixApi/SeverityMap"
+import {SeverityMap} from "../../libs/ZabbixApi/SeverityMap"
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ContainerDimensions from "react-container-dimensions";
 
