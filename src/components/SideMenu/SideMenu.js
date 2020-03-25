@@ -7,6 +7,12 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
+import SettingsIcon from '@material-ui/icons/Settings';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+
+
+
+
 
 class SideMenu extends Component {
     render() {
@@ -32,7 +38,7 @@ class SideMenu extends Component {
                     <Link to="/" onClick={onClose}>
                         <ListItem button>
                             <ListItemIcon>
-                                <InboxIcon/>
+                                <DashboardIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Dashboard"}/>
                         </ListItem>
@@ -40,7 +46,7 @@ class SideMenu extends Component {
                     <Link to="/settings" onClick={onClose}>
                         <ListItem button>
                             <ListItemIcon>
-                                <InboxIcon/>
+                                <SettingsIcon/>
                             </ListItemIcon>
                             <ListItemText primary={"Settings"}/>
                         </ListItem>
