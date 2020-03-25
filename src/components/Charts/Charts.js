@@ -72,8 +72,8 @@ class StackedChart extends Component {
                     <ContainerDimensions>
                         {({width, height}) =>
                             <BarChart
-                                width={width}
-                                height={height}
+                                width={width * 0.99}
+                                height={height * 0.99}
                                 data={this.makeChartData(hosts.hostNodes)}
                                 margin={{
                                     top: 20, right: 30, left: 20, bottom: 5,

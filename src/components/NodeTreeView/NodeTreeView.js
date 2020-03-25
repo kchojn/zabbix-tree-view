@@ -29,10 +29,9 @@ class NodeTreeView extends Component {
     }
 
     renderTree(nodes) {
-        return <StyledTreeItem key={nodes.id} nodeId={nodes.id} labelText={nodes.name}
-                               labelIcon={setIcon(nodes.id, nodes.children ? nodes.children.length : 0)}>
-            {Array.isArray(nodes.children) ? nodes.children.map(node => this.renderTree(node)) : null}
-        </StyledTreeItem>
+        return    <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
+      {Array.isArray(nodes.children) ? nodes.children.map(node => this.renderTree(node)) : null}
+    </TreeItem>
     }
 
     render() {
