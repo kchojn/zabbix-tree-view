@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
 import {Divider, Drawer, List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import IconButton from '@material-ui/core/IconButton';
 import {Link} from "react-router-dom";
 import SettingsIcon from '@material-ui/icons/Settings';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-
-
-
 
 
 class SideMenu extends Component {
