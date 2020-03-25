@@ -9,6 +9,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import PropTypes from 'prop-types';
+import Brightness1OutlinedIcon from '@material-ui/icons/Brightness1Outlined';
+import Brightness2OutlinedIcon from '@material-ui/icons/Brightness2Outlined';
+
 
 class Layout extends Component {
     constructor(props) {
@@ -27,6 +30,13 @@ class Layout extends Component {
         this.setState({
             navBarIsOpen: false
         })
+    }
+
+    setIcon(themeType) {
+        if (themeType === 'dark') {
+            return <Brightness2OutlinedIcon/>
+        }
+        return <Brightness1OutlinedIcon/>
     }
 
     render() {
@@ -55,7 +65,7 @@ class Layout extends Component {
                         <FormControlLabel
                             control={<Switch checked={themeType === 'dark'} onChange={onChangeTheme}
                                              aria-label="login switch"/>}
-                            label={themeType}
+                            label={this.setIcon(themeType)}
                         />
                     </FormGroup>
                 </Toolbar>
