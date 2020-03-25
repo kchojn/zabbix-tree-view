@@ -15,26 +15,16 @@ import styles from "./styles"
 import SettingsIcon from '@material-ui/icons/Settings';
 
 
-
 class AuthSettings extends Component {
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
-        this.state = { username: null, password: null, url: null};
+        this.state = {username: null, password: null, url: null};
     }
 
-    copyright() {
-        return (
-            <Typography variant="body2" color="textSecondary" align="center">
-                {'Copyright © '}
-                <Link color="inherit" href="https://material-ui.com/">
-                    Your Website
-                </Link>{' '}
-                {new Date().getFullYear()}
-                {'.'}
-            </Typography>
-        );
-    }
+    handleChange(event) {
+        this.setState({event});
+    };
 
     render() {
         const {classes} = this.props;
@@ -53,7 +43,7 @@ class AuthSettings extends Component {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     name="username"
-                                    onChange={(username) =>this.setState({username})}
+                                    onChange={this.handleChange.bind(this)}
                                     variant="outlined"
                                     required
                                     fullWidth
@@ -68,7 +58,7 @@ class AuthSettings extends Component {
                                     variant="outlined"
                                     required
                                     fullWidth
-                                    onChange={(password) => this.setState({password})}
+                                    onChange={this.handleChange.bind(this)}
                                     name="password"
                                     label="Password"
                                     type="password"
@@ -86,7 +76,7 @@ class AuthSettings extends Component {
                                     label="Zabbix Url"
                                     name="zabbixUrl"
                                     autoComplete="zabbixUrl"
-                                    onChange={(url) => this.setState({url})}
+                                    onChange={this.handleChange.bind(this)}
                                     value={this.state.url}
                                 />
                             </Grid>
