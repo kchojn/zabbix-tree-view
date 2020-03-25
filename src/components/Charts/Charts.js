@@ -9,7 +9,6 @@ import {SeverityMap} from "../../libs/ZabbixApi/SeverityMap"
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ContainerDimensions from "react-container-dimensions";
 
-const CHART_PADDING = 100;
 
 class StackedChart extends Component {
     // eslint-disable-next-line no-useless-constructor
