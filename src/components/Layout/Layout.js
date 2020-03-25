@@ -62,7 +62,7 @@ class Layout extends Component {
                         <MenuIcon/>
                     </IconButton>
                     <FormGroup>
-                        <FormControlLabel
+                        <FormControlLabel className={classes.switcher}
                             control={<Switch checked={themeType === 'dark'} onChange={onChangeTheme}
                                              aria-label="login switch"/>}
                             label={this.setIcon(themeType)}

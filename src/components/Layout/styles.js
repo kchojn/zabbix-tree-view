@@ -8,7 +8,7 @@ const styles = theme => ({
         display: 'none',
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        marginRight: "auto",
     },
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
@@ -40,6 +40,9 @@ const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
+    },
+    switcher: {flex: 1,
+    marginLeft: "auto",
     },
 });
 
