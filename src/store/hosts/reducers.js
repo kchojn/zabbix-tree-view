@@ -9,7 +9,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case HOST_REQ:
       return {
-        ...state, isFetching: true
+        ...state,
+        isFetching: true
       };
     case HOST_RES:
       return {

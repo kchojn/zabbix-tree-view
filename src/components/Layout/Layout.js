@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import styles from "./styles"
-import {AppBar} from '@material-ui/core';
+import {AppBar, FormControlLabel, FormGroup, Switch} from '@material-ui/core';
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import SideMenu from "../SideMenu/SideMenu";
@@ -30,7 +30,7 @@ class Layout extends Component {
     }
 
     render() {
-        const {classes, children} = this.props;
+        const {classes, children, onChangeTheme, themeType} = this.props;
         const {navBarIsOpen} = this.state;
         return <div className={classes.root}>
             <CssBaseline/>
@@ -51,6 +51,13 @@ class Layout extends Component {
                     >
                         <MenuIcon/>
                     </IconButton>
+                    <FormGroup>
+                        <FormControlLabel
+                            control={<Switch checked={themeType === 'dark'} onChange={onChangeTheme}
+                                             aria-label="login switch"/>}
+                            label={themeType}
+                        />
+                    </FormGroup>
                 </Toolbar>
             </AppBar>
 
@@ -65,7 +72,9 @@ class Layout extends Component {
 }
 
 Layout.propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
+    onChangeTheme: PropTypes.func.isRequired,
+    themeType: PropTypes.oneOf(['dark', 'light']).isRequired,
 };
 
 export default withStyles(styles)(Layout);
