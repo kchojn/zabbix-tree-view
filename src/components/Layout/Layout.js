@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import PropTypes from 'prop-types';
-import Brightness1OutlinedIcon from '@material-ui/icons/Brightness1Outlined';
+import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
 import Brightness2OutlinedIcon from '@material-ui/icons/Brightness2Outlined';
 
 
@@ -36,7 +36,7 @@ class Layout extends Component {
         if (themeType === 'dark') {
             return <Brightness2OutlinedIcon/>
         }
-        return <Brightness1OutlinedIcon/>
+        return <WbSunnyOutlinedIcon/>
     }
 
     render() {
